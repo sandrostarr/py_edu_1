@@ -9,8 +9,9 @@ tree = os.walk(orroot)
 for root, dirs, files in tree:
     if prev_path != os.path.dirname(root):
         prefix+='    '
-    print(prefix,os.path.basename(root))
+    print(prefix, os.path.basename(root))
     for file in files:
         print(prefix_f,prefix, file)
     prev_path = os.path.dirname(root)
-    
+
+
