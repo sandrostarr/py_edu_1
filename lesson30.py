@@ -23,6 +23,4 @@ def game():
         print('Хорошего дня')
 
 
-print("123")
-
 game()
