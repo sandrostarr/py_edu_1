@@ -32,10 +32,10 @@ browser.find_elements_by_class_name('v1Nh3')[9].click() # click on photo to open
 
 
 item = 1
-likes = 20
+likes = 40
 while item <= likes: # loop with how many photos to like
 
-    sleep(random.uniform(1, 6))
+    sleep(random.uniform(3, 7))
 
     if random.randint(1, 5) != 5:
         browser.find_element_by_class_name('fr66n').click() # click the like button
