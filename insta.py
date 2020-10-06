@@ -1,6 +1,7 @@
 import random
 from time import sleep
 from selenium import webdriver
+from pprint import pprint
 
 
 browser = webdriver.Firefox()
@@ -23,7 +24,7 @@ sleep(8)
 # search_input.send_keys("#abstractart")
 # search_input.submit()
 
-browser.get('https://www.instagram.com/explore/tags/abstractart/')
+browser.get('https://www.instagram.com/explore/tags/inktober/')
 
 sleep(8)
 
@@ -32,18 +33,25 @@ browser.find_elements_by_class_name('v1Nh3')[9].click() # click on photo to open
 
 
 item = 1
-likes = 40
+likes = 150
 while item <= likes: # loop with how many photos to like
 
-    sleep(random.uniform(3, 7))
+    sleep(random.uniform(7, 10))
 
-    if random.randint(1, 5) != 5:
-        browser.find_element_by_class_name('fr66n').click() # click the like button
+    if random.randint(1, 7) != 5:
 
-    sleep(random.uniform(1, 3))
+        def check_exists_by_name():
+            return len(browser.find_elements_by_class_name('fr66n')) > 0
+
+        if check_exists_by_name():
+            browser.find_element_by_class_name('fr66n').click()
+            sleep(random.uniform(1, 3))
+        
+
+
     browser.find_element_by_class_name('coreSpriteRightPaginationArrow').click() # click on next photo button
     item = item + 1
-
+    
 print(f'Number of photos liked: \033[0;33m{item - 1}\033[m')
 
 # sleep(15)
